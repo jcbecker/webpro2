@@ -11,7 +11,6 @@
 
 <body>
     
-    
     {{> header}}
     {{> main}}
     {{> footer}}
@@ -288,36 +287,36 @@
 <!-- Template do footer para ser importado em todas as páginas -->
 <template name="footer">
     <footer class="page-footer blue-grey darken-1">
+        <div class="container">
+            <div class="row">
+                <div class="col l6 s12">
+                    <h5 class="white-text">Seções</h5>
+                    <ul>
+                        <li><a class="grey-text text-lighten-3" href="index.html#myfeed">últimas postagens no blog</a></li>
+                        <li><a class="grey-text text-lighten-3" href="index.html#petregister">Cadastro de pet</a></li>
+                        <li><a class="grey-text text-lighten-3" href="index.html#gallery">Galeria</a></li>
+                    </ul>
+                </div>
+                <div class="col l4 offset-l2 s12">
+                    <h5 class="white-text">Outros Sites de Pet</h5>
+                    <ul>
+                        <li><a class="grey-text text-lighten-3" target="_blank" href="https://www.lovethatpet.com/">Love that Pet</a></li>
+                        <li><a class="grey-text text-lighten-3" target="_blank" href="http://www.guiadopet.com/">Guia do Pet</a></li>
+                        <li><a class="grey-text text-lighten-3" target="_blank" href="https://www.pexels.com/search/dog/">Dog photos</a></li>
+                        <li><a class="grey-text text-lighten-3" target="_blank" href="https://www.pexels.com/search/cat/">Cat photos</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-copyright">
             <div class="container">
-                <div class="row">
-                    <div class="col l6 s12">
-                        <h5 class="white-text">Seções</h5>
-                        <ul>
-                            <li><a class="grey-text text-lighten-3" href="index.html#myfeed">últimas postagens no blog</a></li>
-                            <li><a class="grey-text text-lighten-3" href="index.html#petregister">Cadastro de pet</a></li>
-                            <li><a class="grey-text text-lighten-3" href="index.html#gallery">Galeria</a></li>
-                        </ul>
-                    </div>
-                    <div class="col l4 offset-l2 s12">
-                        <h5 class="white-text">Outros Sites de Pet</h5>
-                        <ul>
-                            <li><a class="grey-text text-lighten-3" target="_blank" href="https://www.lovethatpet.com/">Love that Pet</a></li>
-                            <li><a class="grey-text text-lighten-3" target="_blank" href="http://www.guiadopet.com/">Guia do Pet</a></li>
-                            <li><a class="grey-text text-lighten-3" target="_blank" href="https://www.pexels.com/search/dog/">Dog photos</a></li>
-                            <li><a class="grey-text text-lighten-3" target="_blank" href="https://www.pexels.com/search/cat/">Cat photos</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="footer-copyright">
-                <div class="container">
-                    
-                    Without copyrights, and <a href="http://unlicense.org" target="_blank">unlicense</a>
-                    
-                    <a class="text-lighten-4 right" target="_blank" href="https://github.com/jcbecker/webpro1">GitHub<i class="fa fa-github fa-3x" aria-hidden="true"></i></a>
-                    
-                </div>
-            </div>
                 
-        </footer>
+                Without copyrights, and <a href="http://unlicense.org" target="_blank">unlicense</a>
+                
+                <a class="text-lighten-4 right" target="_blank" href="https://github.com/jcbecker/webpro1">GitHub<i class="fa fa-github fa-3x" aria-hidden="true"></i></a>
+                
+            </div>
+        </div>
+            
+    </footer>
 </template>
