@@ -1,3 +1,4 @@
+import { Meteor } from 'meteor/meteor';
 import { Template } from 'meteor/templating';
 import { Rpets } from '../api/items.js';
 
@@ -23,8 +24,10 @@ Template.body.events({
     
     // Insert a task into the collection
     Rpets.insert({
-      name,
-      createdAt: new Date(), // current time
+        owner: Meteor.userId(),
+        username: Meteor.user().username,
+        name,
+        createdAt: new Date(), // current time
     });
     
     

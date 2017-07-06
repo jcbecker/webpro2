@@ -18,10 +18,11 @@
             <div class="nav-wrapper container">
                 <a href="#!" class="brand-logo"><i class="fa fa-paw     " aria-hidden="true"></i>YAPetMan</a>
                 <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
-                <ul class="right hide-on-med-and-down"><!--Menu para não mobile-->
+                <ul class="right hide-on-med-and-down"><!--Menu para desktop-->
                     <li><a href="index.html">Dog</a></li>
                     <li><a href="index.html">Cats</a></li>
                     <li><a href="index.html">Blog</a></li>
+                    <li>{{> loginButtons}}</li>
                 </ul>
                 <ul class="side-nav" id="mobile-demo"><!--Menu lateral para mobile-->
                     <li><a href="index.html">Dog</a></li>
@@ -174,7 +175,7 @@
                 </div>
             </div>
             
-            
+            {{#if currentUser}}
             <div class="row center">
                 
                 <form class="col s12 l6 offset-l3 petRegister">
@@ -219,7 +220,7 @@
                     </div>
                     <div class="row">
                         <div class="input-field col s12">
-                            <input id="petbirthday" type="date" class="datepicker">
+                            <input id="petbirthday" type="date" class="datepicker" name="petbirthday">
                             <label for="petbirthday"><i class="fa fa-calendar   fa-1x" aria-hidden="true"></i>Data de Nascimento</label>
                         </div>
                     </div>
@@ -245,6 +246,9 @@
                     </div>
                 </form>
             </div>
+            {{/if}}
+            
+            
         </div>
         
         <div class="parallax-container" id="mythirdparallax"><!-- container do terceiro parallax  -->
@@ -288,7 +292,7 @@
                         <li><a class="grey-text text-lighten-3" href="index.html#gallery">Galeria</a></li>
                         
                         {{#each pet}}
-                            <li>{{name}}</li>
+                            <li>{{name}}, {{username}}</li>
                         {{/each}}
                         
                     </ul>
