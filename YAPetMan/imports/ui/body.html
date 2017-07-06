@@ -19,15 +19,10 @@
                 <a href="#!" class="brand-logo"><i class="fa fa-paw     " aria-hidden="true"></i>YAPetMan</a>
                 <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
                 <ul class="right hide-on-med-and-down"><!--Menu para desktop-->
-                    <li><a href="index.html">Dog</a></li>
-                    <li><a href="index.html">Cats</a></li>
-                    <li><a href="index.html">Blog</a></li>
-                    <li>{{> loginButtons}}</li>
+                    {{> navs}}
                 </ul>
                 <ul class="side-nav" id="mobile-demo"><!--Menu lateral para mobile-->
-                    <li><a href="index.html">Dog</a></li>
-                    <li><a href="index.html">Cats</a></li>
-                    <li><a href="index.html">Blog</a></li>
+                    {{> navs}}
                 </ul>
                     
             </div>
@@ -35,6 +30,15 @@
         
     </header>
 </template>
+
+<!--Template para coisas que precisam ser mostradas em doi menus, navbar e sidenav-->
+<template name="navs">
+    <li><a href="index.html">Dog</a></li>
+    <li><a href="index.html">Cats</a></li>
+    <li><a href="index.html">Blog</a></li>
+    <li>{{> loginButtons}}</li>
+</template>
+
 
 <!-- Template do main para ser importado em todas as páginas -->
 <template name="main">
@@ -164,9 +168,8 @@
         
         </div>
         
-        <div class="parallax-container" id="mysecondparallax"><!-- container do segundo parallax  -->
-            <div class="parallax"><img src="https://static.pexels.com/photos/167804/pexels-photo-167804.jpeg"></div>
-        </div>
+        {{#if currentUser}}
+        
         
         <div class="container" id="petregister"><!--  Container para cadastrar pet -->
             <div class="row center">
@@ -175,7 +178,7 @@
                 </div>
             </div>
             
-            {{#if currentUser}}
+            
             <div class="row center">
                 
                 <form class="col s12 l6 offset-l3 petRegister">
@@ -189,17 +192,14 @@
                         <div class="col s6">
                             <h5>Gênero</h5>
                             <p>
-                                <input name="gender" type="radio" id="male" value="male" />
+                                <input name="gender" type="radio" id="male" value="male"/>
                                 <label for="male">Macho</label>
                             </p>
                             <p>
                                 <input name="gender" type="radio" id="female" value="female" />
                                 <label for="female">Fêmea</label>
                             </p>
-                            <p>
-                                <input name="gender" type="radio" id="other" value="other" />
-                                <label for="other">Outro</label>
-                            </p>
+                            
                         </div>
                         <div class="col s6">
                             <h5>Espécie</h5>
@@ -218,23 +218,9 @@
                             
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="input-field col s12">
-                            <input id="petbirthday" type="date" class="datepicker" name="petbirthday">
-                            <label for="petbirthday"><i class="fa fa-calendar   fa-1x" aria-hidden="true"></i>Data de Nascimento</label>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="file-field input-field col s12">
-                            <div class="btn">
-                                <span>Foto</span>
-                                <input type="file">
-                            </div>
-                            <div class="file-path-wrapper">
-                                <input class="file-path validate" type="text">
-                            </div>
-                        </div>
-                    </div>
+                    
+                    
+                    
                     <div class="row">
                         <div class="input-field col s12">
                             
@@ -246,10 +232,14 @@
                     </div>
                 </form>
             </div>
-            {{/if}}
+            
             
             
         </div>
+        
+        {{/if}}
+        
+        {{> registredspet}}
         
         <div class="parallax-container" id="mythirdparallax"><!-- container do terceiro parallax  -->
             <div class="parallax"><img src="https://static.pexels.com/photos/167804/pexels-photo-167804.jpeg"></div>
@@ -291,9 +281,7 @@
                         <li><a class="grey-text text-lighten-3" href="index.html#petregister">Cadastro de pet</a></li>
                         <li><a class="grey-text text-lighten-3" href="index.html#gallery">Galeria</a></li>
                         
-                        {{#each pet}}
-                            <li>{{name}}, {{username}}</li>
-                        {{/each}}
+                        
                         
                     </ul>
                 </div>
@@ -319,4 +307,41 @@
         </div>
             
     </footer>
+</template>
+
+
+<template name="registredspet">
+    <div class="container">
+        <div class="row center">
+            <div class="col s12">
+                <h3>Pets Cadastrados</h3>
+            </div>
+        </div>
+        
+        <div class="row">
+            {{#each pet}}
+            
+        <div class="col s12 m6 l3">
+          <div class="card blue-grey darken-1">
+            <div class="card-content white-text">
+              <span class="card-title">{{name}}</span>
+              <ul>
+                  <li>{{gender}}</li>
+                  <li>{{species}}</li>
+              </ul>
+            </div>
+            <div class="card-action">
+              Dono: {{username}}.
+            </div>
+          </div>
+        </div>
+      
+            
+            
+            {{/each}}
+        </div>
+        
+        
+        
+    </div>
 </template>
